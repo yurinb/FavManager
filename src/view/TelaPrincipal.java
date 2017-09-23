@@ -205,21 +205,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
             s = 0;
         }
         if (x >= 0 && !modoSelecaoOn) {
-            ControlDB.removeGroup(sessao.getGroups().get(x));
-            sessao.getGroups().remove(x);
-            sessao.updateGroupJList();
-            if (s == 0) {
-                sessao.updateShowingLinks("home");
-            } else {
-                jList_Groups.setSelectedIndex(Math.abs(x - s));
-                sessao.updateShowingLinks(jList_Groups.getModel().getElementAt(Math.abs(x - s)));
+            Object[] options = {"OK", "CANCEL"};
+            int option = JOptionPane.showOptionDialog(null, "Remover " + jList_Groups.getModel().getElementAt(x) + "?", "!",
+                    JOptionPane.INFORMATION_MESSAGE, JOptionPane.QUESTION_MESSAGE,
+                    null, options, options[0]);
+            if (option == JOptionPane.YES_OPTION) {
+                ControlDB.removeGroup(sessao.getGroups().get(x));
+                sessao.getGroups().remove(x);
+                sessao.updateGroupJList();
+                if (s == 0) {
+                    sessao.updateShowingLinks("home");
+                } else {
+                    jList_Groups.setSelectedIndex(Math.abs(x - s));
+                    sessao.updateShowingLinks(jList_Groups.getModel().getElementAt(Math.abs(x - s)));
+                }
             }
         } else if (modoSelecaoOn) {
-            JOptionPane.showMessageDialog(null, sessao.getShowingLinks().size());
             for (int i = 0; i < sessao.getShowingLinks().size(); i++) {
                 if (sessao.getShowingLinks().get(i).isSelected()) {
                     ControlDB.removeLink(sessao.getShowingLinks().get(i));
-                    JOptionPane.showMessageDialog(null, "Removido link" + i);
                 }
                 System.out.println(i + " # " + sessao.getShowingLinks().get(i).isSelected());
             }
