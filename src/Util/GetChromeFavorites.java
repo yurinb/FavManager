@@ -39,7 +39,7 @@ public class GetChromeFavorites {
         // a file reader class to access the file using string file path 
         FileReader reader = null;
         boolean found = false;
-        
+
         // find bookmarks windows
         try {
             reader = new FileReader(patch1);

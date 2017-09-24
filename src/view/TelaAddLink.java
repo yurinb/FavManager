@@ -221,11 +221,15 @@ public class TelaAddLink extends javax.swing.JDialog {
 
     private void jButton_ADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ADDActionPerformed
         //BOTAO ADICIONAR
-        ControlDB.addLink(jTextField_NOME.getText(), jTextField_URL.getText(), jComboBox_GRUPO.getItemAt(jComboBox_GRUPO.getSelectedIndex()));
-        GetFaviconFromURL.downloadIcons(sessao);
-        sessao.updateShowingLinks(sessao.getShowingGroup());
-        System.out.println(sessao.getShowingGroup());
-        dispose();
+        if (jComboBox_GRUPO.getSelectedIndex() != -1) {
+            ControlDB.addLink(jTextField_NOME.getText(), jTextField_URL.getText(), jComboBox_GRUPO.getItemAt(jComboBox_GRUPO.getSelectedIndex()));
+            GetFaviconFromURL.downloadIcons(sessao);
+            sessao.updateShowingLinks(sessao.getShowingGroup());
+            System.out.println(sessao.getShowingGroup());
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Nenhum grupo selecionado.");
+        }
 
     }//GEN-LAST:event_jButton_ADDActionPerformed
 

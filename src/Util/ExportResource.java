@@ -13,8 +13,6 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.logging.Level;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -63,15 +61,16 @@ public class ExportResource {
      *
      * @param source the source
      *
-     * Testing it (icon.png is an image inside the package image of the application):
+     * Testing it (icon.png is an image inside the package image of the
+     * application):
      * copy(getClass().getResourceAsStream("/image/icon.png"),getBasePathForClass(Main.class)+"icon.png");
-     * 
+     *
      * @param destination the destination
      * @return True if succeeded , False if not
      */
     public static boolean copy(InputStream source, String destination) {
         boolean succeess = true;
-        
+
         System.out.println("Copying ->" + source + "\n\tto ->" + destination);
 //        JOptionPane.showMessageDialog(null, "Copying ->" + source + "\n\tto ->" + destination);
         try {

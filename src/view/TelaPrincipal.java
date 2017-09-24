@@ -143,7 +143,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     return;
                 }
                 URL url = null;
-                if (urlx.substring(0, 5).equals("https") || urlx.substring(0, 5).equals("http")) {
+                if (urlx.substring(0, 5).equals("https") || urlx.substring(0, 4).equals("http")) {
                     url = new URL(urlx);
                 } else {
                     url = new URL("https://" + urlx);

@@ -121,8 +121,6 @@ public class Sessao {
 
     public void updateShowingLinks(String grupoName) {
         atualizarLinksFromDB();
-        System.out.println("====================================================");
-        System.out.println("====================updateShowingLinks==============");
         showingLinks.clear();
         int count = 0;
         for (Link pickedLink : linkList) {

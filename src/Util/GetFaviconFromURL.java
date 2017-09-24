@@ -17,7 +17,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import model.Sessao;
 
 public class GetFaviconFromURL {
@@ -92,7 +91,7 @@ class DownloadIcons implements Runnable {
             try {
                 icon = sessao.getLinkList().get(i).getIcon();
             } catch (Exception e) {
-                   
+
 //                System.out.println("get icon failed.");
             }
             String name = sessao.getLinkList().get(i).getIconName();
